@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#index'
+  
   resources :walks
   resources :comments
   resources :walkers
