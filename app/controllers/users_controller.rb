@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    def new
+    def new # sign up
         @user = User.new
     end
 
-    def create
+    def create # sign up
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
+    def show # profile page
         @user = User.find_by(id: params[:id])
     end
 

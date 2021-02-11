@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
-    def welcome
+    def welcome # homepage
 
     end
 
-    def new
+    def new # log in
 
     end
 
-    def create
+    def create # Log in 
         @user = User.find_by(username: params[:user][:username])
-        # byebug
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
@@ -19,7 +18,7 @@ class SessionsController < ApplicationController
         end
     end
 
-    def destroy
+    def destroy # log out 
         session.delete(:user_id)
         redirect_to root_path
     end

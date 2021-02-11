@@ -1,3 +1,17 @@
-<h1> Hello, <%= @user.username %> </h1>
+<div class="head">
+    <h1> Welcome, <%= @user.username %>!</h1>
+</div>
+
+<br> 
+
+<h4> </h4>
+
+
+<button type="button" class="btn btn-outline-warning"><%= link_to "Schedule a Walk", new_walk_path %></button>
+<button type="button" class="btn btn-outline-warning"><%= link_to "Your Dogs", dogs_path %></button>
+
+
+
+
 
 
