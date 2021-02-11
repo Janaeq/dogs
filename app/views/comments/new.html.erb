@@ -1,1 +1,10 @@
-This is a form for a new comment about a specific walker
+<h1> Enter a comment for <em> this walker </em> </h1>
+
+<%= form_for @comment do |f| %>
+    <%= f.label :entry %>
+    <%= f.text_field :entry %>
+
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :user_id %>
+    <%= f.submit "post" %>
+<% end %>
