@@ -1,1 +1,7 @@
 <h1><%= @dog.name %></h1>
+<h6> Age: <%= @dog.age %></h6><br>
+<h6> Breed: <%= @dog.breed %></h6><br>
+<h6> Gender: <%= @dog.gender %></h6><br>
+
+<button type="button" class="btn btn-outline-warning"><%= link_to "Schedule a Walk!", new_walk_path %></button>
+<%= link_to "Back", dogs_path %>
