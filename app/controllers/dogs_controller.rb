@@ -1,7 +1,8 @@
 class DogsController < ApplicationController
     def index
         # @dogs = array of all dogs that belong to logged in user
-        @dogs = Dog.all
+        user = User.find_by(id: session[:user_id])
+        @dogs = user.dogs
     end
     
     def new
