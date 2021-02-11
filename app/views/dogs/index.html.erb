@@ -1,4 +1,22 @@
-This shows the logged in user's dogs
+<h1> Your Dogs </h1>
+<div class="body">
+    <div class="list-head">
+        <% if @dogs.empty? %>
+            <h5> It looks like you don't have any Furry Friends on your profile yet. </h5> <br>
+            <h5> Click the "Add Dog" button below to create a profile for your Furry Friend! </h5>
+        <% else %>
+            <h3> Here is a list of your Furry Friends </h3>
+    </div>
 
-
-/users/:id/dogs
+    <div class="list">
+            <ul>
+                <% @dogs.each do |dog| %>
+                    <h5><%= link_to "#{dog.name}", dog_path(dog) %></h5>
+                <% end %>
+            </ul>
+        <% end %>
+    </div>
+    <div class="button">
+        <%= link_to "Add Dog", new_dog_path %>
+    </div>
+</div>   

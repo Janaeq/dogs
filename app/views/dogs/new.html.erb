@@ -1,1 +1,17 @@
-This allows the logged in user to add a dog with the user_id of whatever the user.id is
+<h1> Add a New Dog </h1>
+
+<%= form_for @dog do |f| %> 
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <br>
+    <%= f.label :age %><br>
+    <%= f.number_field :age %><br>
+    <br>
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %><br>
+    <br>
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %><br>
+    <br>
+    <%= f.submit "Submit" %>
+<% end %>
