@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'sessions#welcome'
   
-  get "login" => "sessions#new"
-  post "login" => "sessions#create"
-  delete "logout" => "sessions#destroy"
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  delete "/logout" => "sessions#destroy"
 
-  get "signup" => "users#new"
-  post "signup" => "users#create"
+  get "/signup" => "users#new"
+  post "/signup" => "users#create"
 
   resources :walks
   resources :comments
