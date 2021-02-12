@@ -1,6 +1,19 @@
 <h1><%= @walker.name %></h1>
 
-<h5><%= @walker.bio %></h5>
+<p><%= @walker.bio %></p>
 
-<%= link_to "Book a Walk", new_walk_path %>
-<%= link_to "Back", walkers_path %>
+<br>
+
+<h3> See what others have said about <%= @walker.name %></h3>
+
+<% if @walker.comments.empty? %>
+    <p> It looks like <%= @walker.name %> does not have any comments yet! </p>
+<% else %>
+    <%= @walker.comments.each do |comment| %>
+        <h4><%= comment.user.username %></h4>
+        <p><%= comment.entry %></p><br>
+        <p style="color: grey;"><em><%= comment.created_at %></em></p>
+    <% end %>
+<% end %>
+
+<%# if this is a past walker of the current user, show the comment button %>
