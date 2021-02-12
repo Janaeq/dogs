@@ -3,19 +3,9 @@
 <p> Breed: <%= @dog.breed %></p>
 <p> Gender: <%= @dog.gender %></p>
 <br>
-<h4> Future Walks </h4>
-    <% if @dog.walks.empty? %>
-        <p><%= @dog.name %> doesn't have any walks scheduled. </p>
-    <% else %>
-        <ul>
-            <% @dog.walks.each do |walk| %>
-                <%# how to get the date formatted correctly? strf???? %>
-                <p><%= walk.date_time %> with <%= walk.walker.name %>!</p>
-            <% end %>
-        </ul>
-    <% end %>
-<br>
-<br>
 
+<br>
+<br>
+<%= link_to "#{@dog.name}'s Walks", dog_walks_path(@dog) %>
 <%= link_to "My Dogs", dogs_path %><br>
 <%= link_to "Remove This Dog", dogs_path, method: :delete %>
