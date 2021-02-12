@@ -1,5 +1,9 @@
-Here is a list of all available walkers
+<h1> Meet Our Walkers </h1>
 
-Can we query by availability?
 
-/walkers
+<ul>
+    <% @walkers.each do |walker| %>
+        <%= link_to "#{walker.name}", walker_path(walker) %>
+    <% end %>
+</ul>
+<%# Link to logged in user's profile %>

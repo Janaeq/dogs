@@ -1,3 +1,6 @@
-Shows the specific walker's profile
+<h1><%= @walker.name %></h1>
 
-/walkers/:id
+<h5><%= @walker.bio %></h5>
+
+<%= link_to "Book a Walk", new_walk_path %>
+<%= link_to "Back", walkers_path %>
