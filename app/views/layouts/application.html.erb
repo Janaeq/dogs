@@ -10,11 +10,6 @@
   </head>
 
   <body>
-    <%# <% if logged_in? %> 
-      <button type="button" class="btn btn-outline-warning"><%= link_to "Log Out", logout_path, method: :delete %></button>
-    <%# <% else %>
-      <% #redirect_to root_path %>
-    <% #end %>
     <%= yield %>
   </body>
 </html>
