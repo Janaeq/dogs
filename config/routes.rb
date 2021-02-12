@@ -10,6 +10,18 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
   delete "dogs" => "dogs#destroy"
   
+  resources :dogs do
+    resources :walks, only: [:index]
+  end
+
+  resources :walks do 
+    resources :dogs, only: [:index, :new, :create]
+  end
+
+  resources :walkers do
+    resources :comments, only: [:index, :new, :create]
+  end
+
   resources :walks
   resources :comments
   resources :walkers
