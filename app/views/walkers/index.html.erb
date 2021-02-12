@@ -1,9 +1,7 @@
 <h1> Meet Our Walkers </h1>
 
-
 <ul>
     <% @walkers.each do |walker| %>
-        <%= link_to "#{walker.name}", walker_path(walker) %>
+        <%= link_to "#{walker.name}", walker_path(walker) %><br><br>
     <% end %>
 </ul>
-<%# Link to logged in user's profile %>
