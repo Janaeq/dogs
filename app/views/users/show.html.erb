@@ -1,14 +1,9 @@
-<div class="head">
-    <h1> Welcome, <%= @user.username %>!</h1>
-</div>
+<h1> Welcome, <%= @user.username %>!</h1>
 
 <br> 
 
-<h4> </h4>
-
-
-<button type="button" class="btn btn-outline-warning"><%= link_to "Schedule a Walk", new_walk_path %></button>
-<button type="button" class="btn btn-outline-warning"><%= link_to "Your Dogs", dogs_path %></button>
+<%= link_to "Available Walkers", walkers_path %>
+<%= link_to "Your Dogs", dogs_path %>
 
 
 
