@@ -1,8 +1,14 @@
 <h1> Schedule a Walk </h1>
 
 <%= form_for @walk do |f| %>
-    <%= f.label :date %>
-    <%= f.date_field :date_time %>
-    <%# Drop down menu to choose available walkers %>
+    <%= f.label "Choose a Dog:" %><br>
+    <%= f.collection_select :dog_id, @user.dogs, :id, :name, include_blank: true %> <br>
+    <br>
+    <%= f.label "Select a Date:" %><br>
+    <%= f.date_field :date_time %><br>
+    <br>
+    <%= f.label "Choose a Walker:" %><br>
+    <%= f.collection_select :walker_id, Walker.all, :id, :name, include_blank: true %> <br>
+    <br>
     <%= f.submit "Walk!" %>
 <% end %>
