@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post "/signup" => "users#create"
 
   delete "logout" => "sessions#destroy"
-
+  delete "dogs" => "dogs#destroy"
+  
   resources :walks
   resources :comments
   resources :walkers
