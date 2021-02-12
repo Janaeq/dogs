@@ -1,8 +1,21 @@
 <h1><%= @dog.name %></h1>
-<h6> Age: <%= @dog.age %></h6><br>
-<h6> Breed: <%= @dog.breed %></h6><br>
-<h6> Gender: <%= @dog.gender %></h6><br>
+<p> Age: <%= @dog.age %></p>
+<p> Breed: <%= @dog.breed %></p>
+<p> Gender: <%= @dog.gender %></p>
+<br>
+<h4> Future Walks </h4>
+    <% if @dog.walks.empty? %>
+        <p><%= @dog.name %> doesn't have any walks scheduled. </p>
+    <% else %>
+        <ul>
+            <% @dog.walks.each do |walk| %>
+                <%# how to get the date formatted correctly? strf???? %>
+                <p><%= walk.date_time %> with <%= walk.walker.name %>!</p>
+            <% end %>
+        </ul>
+    <% end %>
+<br>
+<br>
 
-<button type="button" class="btn btn-outline-warning"><%= link_to "Schedule a Walk!", new_walk_path %></button>
-<%= link_to "Back", dogs_path %>
+<%= link_to "My Dogs", dogs_path %><br>
 <%= link_to "Remove This Dog", dogs_path, method: :delete %>
