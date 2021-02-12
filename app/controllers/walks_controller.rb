@@ -3,16 +3,20 @@ class WalksController < ApplicationController
     def new
         # schedules a new walk
         @walk = Walk.new
-        @user = current_user
+        @walk.build_dog
     end
 
     def create
         @walk = Walk.new(walk_params)
         if @walk.save
-            redirect_to  dog_path(@walk.dog)
+            redirect_to dog_path(@walk.dog)
         else
             render :new
         end
+    end
+
+    def show
+        @walk = Walk.find_by(id: params[:id])
     end
 
     def edit
@@ -24,7 +28,6 @@ class WalksController < ApplicationController
     end
 
     def walk_params
-        params.require(:walk).permit(:date_time, :dog_id, :walker_id)
+        params.require(:walk).permit(:date_time, :dog_id, :walker_id, dog_attributes:[:name, :age, :breed, :gender, :user_id])
     end
 end
-# nest
