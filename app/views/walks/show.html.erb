@@ -1,0 +1,21 @@
+This dog's walk
+
+
+
+
+
+
+
+
+
+
+<% if @dog.walks.empty? %>
+    <p><%= @dog.name %> doesn't have any walks scheduled. </p>
+<% else %>
+    <ul>
+        <% @dog.walks.each do |walk| %>
+            <%# how to get the date formatted correctly? strf???? %>
+            <p><%= walk.date_time %> with <%= walk.walker.name %>!</p>
+        <% end %>
+    </ul>
+<% end %>
