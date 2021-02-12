@@ -1,1 +1,9 @@
-Form to edit an existing walk
+<h1> Edit Walk Date </h1>
+
+<%= form_for @walk do |f| %>
+    <%= f.label :date %>
+    <%= f.date_field :date_time %>
+    <%# Drop down menu to choose walker %>
+    <%= f.submit "Walk!" %>
+<% end %>
+<%# Above form will automatically populate dog id from dogs#show? %>

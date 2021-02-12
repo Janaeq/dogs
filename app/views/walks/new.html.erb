@@ -1,1 +1,8 @@
-Form to create a new walk
+<h1> Schedule a Walk </h1>
+
+<%= form_for @walk do |f| %>
+    <%= f.label :date %>
+    <%= f.date_field :date_time %>
+    <%# Drop down menu to choose available walkers %>
+    <%= f.submit "Walk!" %>
+<% end %>
