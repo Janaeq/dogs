@@ -5,15 +5,6 @@
 <br>
 
 <h3> See what others have said about <%= @walker.name %></h3>
+<%= link_to "Comments", walker_comments_path(@walker) %>
 
-<% if @walker.comments.empty? %>
-    <p> It looks like <%= @walker.name %> does not have any comments yet! </p>
-<% else %>
-    <%= @walker.comments.each do |comment| %>
-        <h4><%= comment.user.username %></h4>
-        <p><%= comment.entry %></p><br>
-        <p style="color: grey;"><em><%= comment.created_at %></em></p>
-    <% end %>
-<% end %>
 <%= link_to "All Walkers", walkers_path %>
-<%# if this is a past walker of the current user, show the comment button %>
