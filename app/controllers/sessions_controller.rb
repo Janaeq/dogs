@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
     def welcome # homepage
-
     end
 
     def new # log in
