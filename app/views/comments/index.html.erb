@@ -1,0 +1,20 @@
+<h1><%= @walker.name %>'s Reviews</h1>
+
+<% if @walker.comments.empty? %>
+    <p> It looks like <%= @walker.name %> does not have any comments yet! </p>
+<% else %>
+    <% @walker.comments.each do |comment| %>
+        <h4><%= comment.user.username %></h4>
+        <p><%= comment.entry %></p>
+        <p style="color: grey;"><em><%= comment.created_at %></em></p>
+    <% end %>
+<% end %>
+
+<br>
+
+<% if @walkers.any?(@walker) %>
+    <%= link_to "Create Comment", new_walker_comment_path(@walker) %>
+<% end %>
+
+
+<%= link_to "#{@walker.name}'s profile", walker_path(@walker) %>
