@@ -1,12 +1,4 @@
-This dog's walk
-
-
-
-
-
-
-
-
+<h1><%= @dog.name %>'s Scheduled Walks </h1>
 
 
 <% if @dog.walks.empty? %>
@@ -19,3 +11,5 @@ This dog's walk
         <% end %>
     </ul>
 <% end %>
+
+<%= link_to "#{@dog.name}'s Profile", dog_path(@dog) %>
