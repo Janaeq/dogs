@@ -12,7 +12,7 @@
 
 <br>
 
-<% if @walkers.any?(@walker) %>
+<% if current_user.walkers.include?(@walker) %>
     <%= link_to "Create Comment", new_walker_comment_path(@walker) %>
 <% end %>
 

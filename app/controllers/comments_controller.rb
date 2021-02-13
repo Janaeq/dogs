@@ -2,12 +2,6 @@ class CommentsController < ApplicationController
     
     def index 
         @walker = Walker.find_by(id: params[:walker_id])
-        @walkers = []
-        #takes too long. should I just make an association?
-        dogs = current_user.dogs
-        dogs.each do |dog|
-            @walkers << dog.walkers[0]
-        end
     end
 
     def new
