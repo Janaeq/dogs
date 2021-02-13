@@ -1,5 +1,9 @@
 class WalksController < ApplicationController
 
+    def index
+        @dog = Dog.find_by(id: params[:dog_id])
+    end
+
     def new
         # schedules a new walk
         @walk = Walk.new
