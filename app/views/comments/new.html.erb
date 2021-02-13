@@ -1,10 +1,13 @@
-<h1> Enter a comment for <em> this walker </em> </h1>
+<h1> Enter a comment for <%= @walker.name %> </h1>
 
 <%= form_for @comment do |f| %>
     <%= f.label :entry %>
     <%= f.text_field :entry %>
 
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :walker_id, value: params[:walker_id] %>
+    
     <%= f.submit "post" %>
 <% end %>
+
+<%= link_to "back", walker_comments_path(@walker) %>
