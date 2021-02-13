@@ -1,15 +1,31 @@
-<h1><%= @dog.name %>'s Scheduled Walks </h1>
+<% if @dog %>
+    <h1><%= @dog.name %>'s Scheduled Walks </h1>
 
-
-<% if @dog.walks.empty? %>
-    <p><%= @dog.name %> doesn't have any walks scheduled. </p>
+    <% if @dog.walks.empty? %>
+        <p><%= @dog.name %> doesn't have any walks scheduled. </p>
+    <% else %>
+        <ul>
+            <% @dog.walks.each do |walk| %>
+                <%# how to get the date formatted correctly? strf???? %>
+                <p><%= walk.date_time %> with <%= walk.walker.name %>!</p>
+                <%# link_to "Cancel", %>
+            <% end %>
+        </ul>
+        <%= link_to "#{@dog.name}'s Profile", dog_path(@dog) %>
+        <%= link_to "Shedule A Walk", new_dog_walk_path(@dog) %>
+    <% end %>
 <% else %>
-    <ul>
-        <% @dog.walks.each do |walk| %>
-            <%# how to get the date formatted correctly? strf???? %>
-            <p><%= walk.date_time %> with <%= walk.walker.name %>!</p>
-        <% end %>
-    </ul>
+    <h1> Scheduled Walks </h1>
+    <% if @walks.empty? %>
+        <p>You do not have any walks scheduled yet.</p>
+    <% else %>
+        <ul>
+            <% @walks.each do |walk| %>
+                <p> <%= link_to "#{walk.dog.name}", dog_path(walk.dog) %> has a scheduled walk with <%= link_to "#{walk.walker.name}", walker_path(walk.walker) %> on <%= walk.date_time %> </p>
+            <% end %>
+        </ul>
+    <% end %>
 <% end %>
 
-<%= link_to "#{@dog.name}'s Profile", dog_path(@dog) %>
+<%= link_to "My Profile", user_path(current_user) %>
+

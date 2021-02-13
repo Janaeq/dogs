@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete "dogs" => "dogs#destroy"
   
   resources :dogs do
-    resources :walks, only: [:index]
+    resources :walks, only: [:index, :new, :create] #dogs/:id/walks
   end
 
   resources :walks do 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :walkers do
-    resources :comments, only: [:index, :new, :create]
+    resources :comments, only: [:index, :new, :create] #walkers/:id/comments
   end
 
   resources :walks
