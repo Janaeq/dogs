@@ -7,8 +7,7 @@
         <ul>
             <% @dog.walks.each do |walk| %>
                 <%# how to get the date formatted correctly? strf???? %>
-                <p><%= walk.date_time %> with <%= walk.walker.name %>!</p>
-                <%# link_to "Cancel", %>
+                <p><%= walk.date_time %> with <%= walk.walker.name %>! <%= link_to "Cancel This Walk", walk, method: :delete %></p>
             <% end %>
         </ul>
     <% end %>
