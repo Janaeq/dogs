@@ -14,10 +14,6 @@ Rails.application.routes.draw do
     resources :walks, only: [:index, :new, :create] #dogs/:id/walks
   end
 
-  resources :walks do 
-    resources :dogs, only: [:index, :new, :create]
-  end
-
   resources :walkers do
     resources :comments, only: [:index, :new, :create] #walkers/:id/comments
   end
