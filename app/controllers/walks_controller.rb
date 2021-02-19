@@ -20,16 +20,10 @@ class WalksController < ApplicationController
     end
 
     def create
-        if params[:dog_id] && @dog
+        if params[:walk][:dog_id] && @dog
             @walk = @dog.walks.build(walk_params)
         else
-            dog = current_user.dogs.build(dog_params)
             @walk = current_user.scheduled_walks.build(walk_params)
-            if dog.save # can't save a walk without saving the new dog first 
-                @walk.dog_id = dog.id
-            else
-                flash[:error] = "There's something wrong with your dog. Please try again"
-            end
         end
         if @walk.save
             redirect_to dog_walks_path(@walk.dog)
@@ -39,7 +33,6 @@ class WalksController < ApplicationController
     end
 
     def destroy
-        # cancels walk
         @walk.destroy
         redirect_to user_path(current_user)
     end
@@ -47,11 +40,7 @@ class WalksController < ApplicationController
     def walk_params
         params.require(:walk).permit(:date_time, :dog_id, :walker_id, dog_attributes:[:name, :age, :breed, :gender, :user_id])
     end
-
-    def dog_params
-        params.require(:walk).require(:dog_attributes).permit(:name, :age, :breed, :gender, :user_id)    
-    end
-
+    
     def find_walk
         @walk = Walk.find_by(id: params[:id])
     end
