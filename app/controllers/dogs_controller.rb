@@ -25,6 +25,9 @@ class DogsController < ApplicationController
 
     def destroy
         # deletes the instance of the dog. can only be done if dog belongs to logged in user
+        dog = Dog.find(params[:id])
+        dog.destroy
+        redirect_to dogs_path
     end
 
     private 
