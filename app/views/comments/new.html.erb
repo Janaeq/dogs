@@ -1,8 +1,10 @@
 <h1> Enter a comment for <%= @walker.name %> </h1>
 
+<%= render partial: "layouts/errors", locals: { obj: @comment } %>
+
 <%= form_for @comment do |f| %>
     <%= f.label :entry %>
-    <%= f.text_field :entry %>
+    <%= f.text_field :entry, required: true %>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :walker_id, value: params[:walker_id] %>
