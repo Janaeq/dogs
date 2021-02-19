@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   root 'sessions#welcome'
   
-  get "/login" => "sessions#new"
-  post "/login" => "sessions#create"
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete "logout" => "sessions#destroy"
 
   get "/signup" => "users#new"
   post "/signup" => "users#create"
 
-  delete "logout" => "sessions#destroy"
   delete "dogs" => "dogs#destroy"
   
   resources :dogs do
