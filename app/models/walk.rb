@@ -3,6 +3,7 @@ class Walk < ApplicationRecord
     belongs_to :dog
 
     validates :date_time, presence: true
+    validates_associated :dog
 
     def dog_attributes=(dog_params)
         if !dog_params[:name].blank?
