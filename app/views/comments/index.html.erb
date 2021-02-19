@@ -7,6 +7,9 @@
         <h4><%= comment.user.username %></h4>
         <p><%= comment.entry %></p>
         <p style="color: grey;"><em><%= comment.created_at %></em></p>
+        <% if comment.user_id == current_user.id %>
+            <%= link_to "Delete this Comment", comment, method: :delete %>
+        <% end %>
     <% end %>
 <% end %>
 
