@@ -4,7 +4,11 @@ class Walk < ApplicationRecord
 
     validates :date_time, presence: true
     validates_associated :dog
-
+    # validate that the date is in the future
+    
+    # scope method to find upcoming walk
+    scope :next_walk, -> { order(date_time: :desc).limit(1) }
+    
     def dog_attributes=(dog_params)
         if !dog_params[:name].blank?
             self.dog = Dog.find_or_create_by(dog_params)
