@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :set_walker, only: [:index, :new]
+
     def index 
     end
 
