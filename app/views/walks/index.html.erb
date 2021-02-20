@@ -20,7 +20,7 @@
     <% else %>
         <ul>
             <% @walks.each do |walk| %>
-                <p> <%= link_to "#{walk.dog.name}", dog_path(walk.dog) %> has a scheduled walk with <%= link_to "#{walk.walker.name}", walker_path(walk.walker) %> on <%= walk.date_time %> </p>
+                <p> <%= link_to "#{walk.dog.name}", dog_path(walk.dog) %> has a scheduled walk with <%= link_to "#{walk.walker.name}", walker_path(walk.walker) %> on <%= walk.date_time %>  <%= link_to "Cancel This Walk", walk, method: :delete %></p></p>
             <% end %>
         </ul>
     <% end %>
