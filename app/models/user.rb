@@ -5,6 +5,6 @@ class User < ApplicationRecord
     has_many :scheduled_walks, through: :dogs, source: :walks
     has_secure_password
 
-    validates :username, :email, presence: true
+    validates :username, :email, :password, presence: true
     validates :username, :email, uniqueness: true
 end
