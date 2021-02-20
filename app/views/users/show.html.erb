@@ -3,7 +3,7 @@
 <br> 
 <h3> Next Walk </h3>
 
-<% @walk.each do |w| %>
+<% @user.scheduled_walks.next_walk.each do |w| %>
     <p><%= w.date_time %> - <%= w.dog.name.capitalize %> has a walk with <%= w.walker.name %> </p>
 <% end %>
 <br>
