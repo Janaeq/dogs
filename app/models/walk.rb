@@ -4,8 +4,8 @@ class Walk < ApplicationRecord
 
     validates :date_time, presence: true
     validates_associated :dog
-    # validate that the date is in the future
-    
+    # validate that the date is in the future 
+
     # scope method to find upcoming walk
     scope :next_walk, -> { order(date_time: :desc).limit(1) }
     
