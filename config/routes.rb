@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get "/signup" => "users#new"
   post "/signup" => "users#create"
 
-  
+  get '/auth/:provider/callback' => 'sessions#omniauth'
+
   resources :dogs do
     resources :walks, only: [:index, :new, :create] #dogs/:id/walks
   end
