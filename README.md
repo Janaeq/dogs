@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Dog Walking Program that allows users to add their dogs to their profiles and schedule walks for them.
+Users can also comment on walkers that their dogs have walked with or will walk with in the future. 
 
-Things you may want to cover:
+This program uses the Google OAuth gem to allow users to log in using Google.
 
-* Ruby version
+To begin, fork and clone this repo. 
+Run ```bundle install``` 
 
-* System dependencies
+Once all your gems are installed, start the server using ```rails s```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Open the program by entering "localhost:3000" in your browser
