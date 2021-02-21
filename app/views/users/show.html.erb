@@ -2,9 +2,12 @@
 
 <br> 
 <h3> Next Walk </h3>
-
-<% @user.scheduled_walks.next_walk.each do |w| %>
-    <p><%= w.display_date %> <%= w.display_time %> - <%= w.dog.name.capitalize %> has a walk with <%= w.walker.name %> </p>
+<% if upcoming_walks.empty? %>
+    <p> No walks scheduled yet. Click Schedule a Walk to get started! </p>
+<% else %>
+    <% upcoming_walks.each do |w| %>
+        <p><%= w.display_date %> <%= w.display_time %> - <%= w.dog.name.capitalize %> has a walk with <%= w.walker.name %> </p>
+    <% end %>
 <% end %>
 <br>
 
