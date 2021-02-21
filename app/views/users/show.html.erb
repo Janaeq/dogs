@@ -7,7 +7,5 @@
     <p><%= w.date_time %> - <%= w.dog.name.capitalize %> has a walk with <%= w.walker.name %> </p>
 <% end %>
 <br>
-<%= link_to "Available Walkers", walkers_path %>
-<%= link_to "Your Dogs", dogs_path %>
+
 <%= link_to "Schedule a Walk!", new_walk_path %>
-<%= link_to "Your Walks", walks_path %>

@@ -1,0 +1,19 @@
+<%= render partial: "layouts/errors", locals: { obj: @dog } %>
+        <br>
+        <%= f.label "Choose a Dog:" %><br>
+        <%= f.collection_select :dog_id, current_user.dogs, :id, :name, include_blank: true %> <br>            
+        <h3> Or Create a New Dog </h3>
+        <%= f.fields_for :dog, Dog.new do |d| %>
+            <%= d.label :name %><br>
+            <%= d.text_field :name %><br>
+            <br>
+            <%= d.label :age %><br>
+            <%= d.number_field :age %><br>
+            <br>
+            <%= d.label :breed %><br>
+            <%= d.text_field :breed %><br>
+            <br>
+            <%= d.label :gender %><br>
+            <%= d.text_field :gender %><br><br>
+            <%= d.hidden_field :user_id, value: current_user.id %>
+        <% end %>

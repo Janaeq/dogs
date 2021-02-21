@@ -1,0 +1,18 @@
+<% if @dog %>
+    <ul>
+        <% @dog.walks.each do |walk| %>
+            <% if walk.date_time > Date.today %>
+                <p><%= walk.display_date %> at <%= walk.display_time %> with <%= walk.walker.name %>! <%= link_to "Cancel This Walk", walk, method: :delete %></p>
+            <% end %>
+        <% end %>
+    </ul>
+<% else %>
+    <ul>
+        <% @walks.each do |walk| %>
+            <% if walk.date_time > Date.today %>
+                <p> <%= link_to "#{walk.dog.name}", dog_path(walk.dog) %> has a walk with <%= link_to "#{walk.walker.name}", walker_path(walk.walker) %> on <%= walk.display_date %> at <%= walk.display_time %></p> <%= link_to "Cancel This Walk", walk, method: :delete %>
+            <% end %>
+        <% end %>
+    </ul>
+<% end %>
+

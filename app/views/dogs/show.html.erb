@@ -3,10 +3,6 @@
 <p> Breed: <%= @dog.breed %></p>
 <p> Gender: <%= @dog.gender %></p>
 
-<br>
-<br>
-<br>
 
-<%= link_to "My Dogs", dogs_path %>
 <%= link_to "#{@dog.name}'s Walks", dog_walks_path(@dog) %>
 <%= link_to "Remove this Dog", @dogs, method: :delete %>
