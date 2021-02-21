@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
     before_action :set_dog, only: [:show, :destroy]
-
+    
     def index
         # @dogs = array of all dogs that belong to logged in user
         @dogs = current_user.dogs
@@ -22,6 +22,10 @@ class DogsController < ApplicationController
 
     def show
         # show the dog's profile. can only be visible by the dogs owner
+        if current_user != @dog.user
+            flash[:message] = "Action not authorized."
+            redirect_to user_path(current_user)
+        end
     end 
 
     def destroy
@@ -39,5 +43,4 @@ class DogsController < ApplicationController
     def set_dog
         @dog = Dog.find_by(id: params[:id])
     end
-    
 end

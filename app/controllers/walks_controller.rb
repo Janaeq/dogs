@@ -1,8 +1,9 @@
 class WalksController < ApplicationController
     before_action :find_dog, only: [:index, :new, :create]
+    # before_action :authorized_user 
 
     def index
-        if params[:dog_id] && @dog
+        if params[:dog_id] && @dog && authorized_user
             @walks = @dog.walks
         else
             @walks = current_user.scheduled_walks
@@ -11,7 +12,7 @@ class WalksController < ApplicationController
 
     def new
         # schedules a new walk
-        if params[:dog_id] && @dog
+        if params[:dog_id] && @dog && authorized_user
             @walk = @dog.walks.build # prepopulates the dog field of the new form
         else 
             @walk = Walk.new
@@ -20,7 +21,7 @@ class WalksController < ApplicationController
     end
 
     def create
-        if params[:dog_id] && @dog 
+        if params[:dog_id] && @dog && authorized_user
             @walk = @dog.walks.build(walk_params)
         else
             @walk = current_user.scheduled_walks.build(walk_params)
@@ -46,5 +47,12 @@ class WalksController < ApplicationController
     
     def find_dog
         @dog = Dog.find_by_id(params[:dog_id])
+    end
+
+    def authorized_user
+        if current_user != @dog.user
+            flash[:message] = "Action not authorized."
+            redirect_to user_path(current_user)
+        end
     end
 end
