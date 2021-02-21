@@ -6,13 +6,13 @@
     <% @walker.comments.each do |comment| %>
         <h4><%= comment.user.username %></h4>
         <p><%= comment.entry %></p>
-        <p style="color: grey;"><em><%= comment.created_at %></em></p>
+        <p style="color: grey;"><em><%= comment.display_date %></em></p>
         <% if comment.user_id == current_user.id %>
             <%= link_to "Delete this Comment", comment, method: :delete %>
         <% end %>
     <% end %>
 <% end %>
-
+<br>
 <br>
 
 <% if current_user.walkers.include?(@walker) %>

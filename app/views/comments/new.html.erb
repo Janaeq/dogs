@@ -9,7 +9,7 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :walker_id, value: params[:walker_id] %>
     
-    <%= f.submit "post" %>
+    <%= f.submit "Post!" %>
 <% end %>
 
-<%= link_to "back", walker_comments_path(@walker) %>
+<%= link_to "Back", walker_comments_path(@walker) %>
