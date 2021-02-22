@@ -1,10 +1,16 @@
-<h1><%= @walker.name %></h1>
-
-<p><%= @walker.bio %></p>
-
-<br>
-
-<h3> See what others have said about <%= @walker.name %></h3>
-<%= link_to "Comments", walker_comments_path(@walker) %>
-
-<%= link_to "All Walkers", walkers_path %>
+<div class="block">
+<div class="columns is-vcentered">
+    <div class="column is-7">
+        <div class="message is-link">
+            <div class="message-header">
+                <h1 class="title" style="color: white;"><%= @walker.name %></h1>
+            </div>
+            <div class="message-body">
+                <p><%= @walker.bio %></p>
+                <br>
+                <h1 class="label"> See what others have said about <%= @walker.name %></h1>
+                <%= link_to "Comments", walker_comments_path(@walker), class: "button is-link is-outlined" %>
+            </div>
+        </div>
+    </div>
+</div>

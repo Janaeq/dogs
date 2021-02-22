@@ -1,7 +1,26 @@
-<h1> Meet Our Walkers </h1>
-
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+      Meet Our Walkers!
+    </p>
+  </div>
+</section>
+<div class="message is-link">
+<div class="message-body">
+<div class="columns is-vcentered">
+<div class="column is-6">
+    <p class="bd-notification">We only provide the best service for our users. Click on one of our walkers to get to know more about them!</p>
+</div>
+<div class="column">
 <ul>
     <% @walkers.each do |walker| %>
-        <%= link_to "#{walker.name}", walker_path(walker) %><br><br>
+    <div class="buttons is-centered">
+        <%= link_to "#{walker.name}", walker_path(walker), class: "button is-link is-outlined is-medium is-fullwidth" %><br><br>
+    </div>
     <% end %>
 </ul>
+</div>
+</div>  
+</div>
+</div>
+

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dogs</title>
+    <title>Furry Trails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
   </head>
 
   <body>
-    <% if logged_in? %> 
-      <%= link_to "Profile", user_path(current_user) %>  
-      <%= link_to "My Dogs", dogs_path %>
-      <%= link_to "My Walks", walks_path %>
-      <%= link_to "Our Walkers", walkers_path %>
-      <%= link_to "Log Out", logout_path, method: :delete %> 
-    <% end %>
+    
+
+    <%= render partial: "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>

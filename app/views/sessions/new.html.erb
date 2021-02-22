@@ -1,17 +1,29 @@
-<h1> Log In Here! </h1>
-<%= render partial: "layouts/errors", locals: { obj: @user } %>
+<div class="message is-link">
+    <div class="message-header">
+        <p>Log In Here!</p>
+    </div>
+    <div class="box">
+        <%= render partial: "layouts/errors", locals: { obj: @user } %>
+        <% if flash[:message] %>
+            <%= flash[:message] %>
+        <% end %>
+        <%= form_for :user do |f| %>
 
-<% if flash[:message] %>
-    <%= flash[:message] %>
-<% end %>
-<br>
-<%= form_for :user do |f| %>
-
-    <%= f.label :username %>
-    <%= f.text_field :username, required: true  %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password, required: true  %>
-
-    <%= f.submit "Log In" %>
-<% end %>
+            <%= f.label :username, class: "label" %>
+            <%= f.text_field :username, required: true  %>
+            <br><br>
+            <%= f.label :password, class: "label" %>
+            <%= f.password_field :password, required: true  %>
+            <br><br>
+            <div class="field is-grouped">
+            <div class="control">
+            <%= f.submit "Log In", class: "button is-link" %>
+            </div>
+        <% end %>
+        <div class="control">
+        <%= button_to "Log In with Google", '/auth/google_oauth2', class: "button is-link is-light" %>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>

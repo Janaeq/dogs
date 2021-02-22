@@ -1,23 +1,45 @@
-<h1><%= @walker.name %>'s Reviews</h1>
+<!-- HERO -->
+<section class="hero is-small is-link">
+    <div class="hero-body">
+        <p class="title"><%= @walker.name %>'s Reviews</p>
+        <div class="field is-grouped">
+            <p class="control">
+                <%= link_to "#{@walker.name}'s profile", walker_path(@walker), class: "button is-small is-link is-light" %>
+            </p>
+            <p class="control">
+                <% if current_user.walkers.include?(@walker) %>
+                    <%= link_to "Create Comment", new_walker_comment_path(@walker), class: "button is-small is-link is-light" %>
+                <% end %>
+            </p>
+        </div>
+    </div>
+</section>
 
-<% if @walker.comments.empty? %>
-    <p> It looks like <%= @walker.name %> does not have any comments yet! </p>
-<% else %>
-    <% @walker.comments.each do |comment| %>
-        <h4><%= comment.user.username %></h4>
-        <p><%= comment.entry %></p>
-        <p style="color: grey;"><em><%= comment.display_date %></em></p>
+<div class="card">
+  <div class="card-content">
+    <% if @walker.comments.empty? %>
+        <p class="subtitle"> It looks like <%= @walker.name %> does not have any reviews yet! </p>
+    <% else %>
+    
+        <% @walker.comments.each do |comment| %>
+        <div class="card">
+        <div class="card-content">
+        <p class="title">
+            "<%= comment.entry %>"
+        </p>
+        <div class="field is-grouped">
+        <div class="control">
+        <p class="subtitle">
+            <%= comment.user.username %> | <%= comment.display_date %>
+        </p>
+        </div>
+        <div class="control">
         <% if comment.user_id == current_user.id %>
-            <%= link_to "Delete this Comment", comment, method: :delete %>
+            <%= link_to "Delete this Comment", comment, method: :delete, class: "button is-small is-danger is-outlined" %>
         <% end %>
-    <% end %>
-<% end %>
-<br>
-<br>
-
-<% if current_user.walkers.include?(@walker) %>
-    <%= link_to "Create Comment", new_walker_comment_path(@walker) %>
-<% end %>
-
-
-<%= link_to "#{@walker.name}'s profile", walker_path(@walker) %>
+        </div>
+        </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
