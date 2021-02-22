@@ -8,7 +8,7 @@ class Walk < ApplicationRecord
     validate :date_cannot_be_in_the_past
 
     # scope method to find upcoming walk
-    scope :next_walk, -> { order(date_time: :desc).limit(1) }
+    scope :next_walk, -> { order(date_time: :asc).limit(1) }
     
     def dog_attributes=(dog_params)
         if !dog_params[:name].blank?
