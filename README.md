@@ -3,7 +3,7 @@
 This is a Dog Walking Program that allows users to add their dogs to their profiles and schedule walks for them.
 Users can also comment on walkers that their dogs have walked with or will walk with in the future. 
 
-This program uses the Google OAuth gem to allow users to log in using Google.
+This program uses the Google OAuth gem to allow users to log in using Google if they choose.
 
 To begin, fork and clone this repo. 
 Run ```bundle install``` 
