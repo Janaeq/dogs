@@ -1,8 +1,16 @@
-<h1><%= @dog.name %></h1>
-<p> Age: <%= @dog.age %></p>
-<p> Breed: <%= @dog.breed %></p>
-<p> Gender: <%= @dog.gender %></p>
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+        <%= @dog.name.capitalize %>
+    </p>
+  </div>
+</section>
+<div class="message is-link">
+  <div class="message-body">
+    <p><strong>Age:</strong> <%= @dog.age %></p>
+    <p><strong>Breed:</strong> <%= @dog.breed %></p>
+    <p><strong>Gender:</strong> <%= @dog.gender %></p>
 
-
-<%= link_to "#{@dog.name}'s Walks", dog_walks_path(@dog) %>
-<%= link_to "Remove this Dog", @dogs, method: :delete %>
+<br>
+<%= link_to "#{@dog.name.capitalize}'s Walks", dog_walks_path(@dog), class: "button is-link is-small" %>
+<%= link_to "Remove this Dog", @dogs, method: :delete, class: "button is-danger is-outlined is-small", data: { confirm: "Delete Dog?" } %>

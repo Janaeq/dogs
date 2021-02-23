@@ -10,9 +10,9 @@ module WalksHelper
 
     def walks_heading
         if @dog
-            tag.h1("#{@dog.name}'s Scheduled Walks ")
+            "#{@dog.name}'s Scheduled Walks"
         else 
-            tag.h1("Scheduled Walks")
+            "Scheduled Walks"
         end
     end
 end

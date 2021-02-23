@@ -1,14 +1,22 @@
-<h1> Welcome, <%= @user.username %>!</h1>
-
-<br> 
-<h3> Next Walk </h3>
-<% if upcoming_walks.empty? %>
-    <p> No walks scheduled yet. Click Schedule a Walk to get started! </p>
-<% else %>
-    <% upcoming_walks.each do |w| %>
-        <p><%= w.display_date %> <%= w.display_time %> - <%= w.dog.name.capitalize %> has a walk with <%= w.walker.name %> </p>
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+        Welcome, <%= @user.username %>!
+    </p>
+  </div>
+</section>
+<div class="message is-link">
+  <div class="message-body">
+    <h3 class="title is-3"> Next Walk </h3>
+    <% if upcoming_walks.empty? %>
+        <p> No walks scheduled yet. Click Schedule a Walk to get started! </p>
+    <% else %>
+        <% upcoming_walks.each do |w| %>
+            <p><strong><%= w.display_date %> <%= w.display_time %></strong> - <%= w.dog.name.capitalize %> has a walk with <%= w.walker.name %> </p>
+        <% end %>
     <% end %>
-<% end %>
-<br>
+    <br>
+    <%= link_to "Schedule a Walk!", new_walk_path, class: "button is-link is-outlined" %>
+  </div>
+</div>
 
-<%= link_to "Schedule a Walk!", new_walk_path %>

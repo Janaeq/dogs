@@ -1,15 +1,29 @@
-<h1> Schedule a Walk </h1>
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+        Schedule a Walk!
+    </p>
+  </div>
+</section>
 
+<div class="box">
 <%= render partial: "layouts/errors", locals: { obj: @walk } %>
 
 <%= form_for [@dog, @walk] do |f| %>
-    <%= f.label "Choose a Walker:" %><br>
-    <%= f.collection_select :walker_id, Walker.all, :id, :name, include_blank: true, required: true %> <br>      
-    <br>       
-    <%= f.label "Select a Date and Time:" %><br>
-    <%= f.datetime_field :date_time, required: true %><br>
-    <br>
+    <div class="field">
+    <%= f.label "Choose a Walker:", class: "label is-medium" %>
+    <div class="control">
+    <%= f.collection_select :walker_id, Walker.all, :id, :name, include_blank: true, required: true %>
+    </div>
+    </div> 
+    <div class="field">      
+    <%= f.label "Select a Date and Time:", class: "label is-medium" %>
+    <div class="control">
+    <%= f.datetime_field :date_time, required: true %>
+    </div>
+    </div> 
     <%= new_dog_option(f) %>
     
-    <%= f.submit "Walk!" %>
+    <%= f.submit "Walk!", class: "button is-link" %>
 <% end %>
+</div>

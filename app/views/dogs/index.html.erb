@@ -1,13 +1,23 @@
-<h1> Your Dogs </h1>
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+        My Dogs
+    </p>
+  </div>
+</section>
+<div class="message is-link">
+<div class="message-body">
 <% if @dogs.empty? %>
-    <h5> It looks like you don't have any Furry Friends on your profile yet. </h5>
-    <h5> Click the "Add Dog" button below to create a profile for your Furry Friend! </h5>
+<div class="container">
+    <p class="subtitle"> It looks like you don't have any Furry Friends on your profile yet. </p>
+    <p class="subtitle"> Click the "Add Dog" button below to create a profile for your Furry Friend! </p>
 <% else %>
-    <h3> Here is a list of your Furry Friends </h3>
+    <p class="subtitle"> Here is a list of your Furry Friends </p>
     <ul>
         <% @dogs.each do |dog| %>
-            <h5><%= link_to "#{dog.name}", dog_path(dog) %></h5>
+            <p class="subtitle is-5"><strong><%= link_to "#{dog.name.capitalize}", dog_path(dog) %></strong></p>
         <% end %>
     </ul>
 <% end %>
-<%= link_to "Add Dog", new_dog_path %> 
+<br><br>
+<%= link_to "Add Dog", new_dog_path, class: "button is-link is-small"%> 

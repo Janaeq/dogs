@@ -1,18 +1,17 @@
+<ul>
+    <% @walks.each do |walk| %>
+        <% if walk.date_time > Date.today %>
+            <p>
+                <strong><%= walk.display_date %> <%= walk.display_time %></strong> - <%= link_to "#{walk.dog.name.capitalize}", dog_path(walk.dog) %> has a walk with <%= link_to "#{walk.walker.name}", walker_path(walk.walker) %> 
+                <%= link_to "", walk, method: :delete, class: "fa fa-trash", data: { confirm: "Cancel Walk?" }%>
+            </p>
+        <% end %>
+    <% end %>
+</ul>
+<br><br>
 <% if @dog %>
-    <ul>
-        <% @dog.walks.each do |walk| %>
-            <% if walk.date_time > Date.today %>
-                <p><%= walk.display_date %> at <%= walk.display_time %> with <%= walk.walker.name %>! <%= link_to "Cancel This Walk", walk, method: :delete %></p>
-            <% end %>
-        <% end %>
-    </ul>
+    <%= link_to "Shedule A Walk", new_dog_walk_path(@dog), class: "button is-link is-small" %>
+    <%= link_to "#{@dog.name.capitalize}'s Profile", dog_path(@dog) , class: "button is-link is-small"%>
 <% else %>
-    <ul>
-        <% @walks.each do |walk| %>
-            <% if walk.date_time > Date.today %>
-                <p> <%= link_to "#{walk.dog.name}", dog_path(walk.dog) %> has a walk with <%= link_to "#{walk.walker.name}", walker_path(walk.walker) %> on <%= walk.display_date %> at <%= walk.display_time %></p> <%= link_to "Cancel This Walk", walk, method: :delete %>
-            <% end %>
-        <% end %>
-    </ul>
+    <%= link_to "Schedule a Walk!", new_walk_path, class: "button is-link is-small" %>
 <% end %>
-

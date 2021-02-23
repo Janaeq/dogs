@@ -35,7 +35,7 @@
         </div>
         <div class="control">
         <% if comment.user_id == current_user.id %>
-            <%= link_to "Delete this Comment", comment, method: :delete, class: "button is-small is-danger is-outlined" %>
+            <%= link_to "", comment, method: :delete, class: "fa fa-trash-o", style: "color: red;", data: { confirm: "Delete Post?" } %>
         <% end %>
         </div>
         </div>

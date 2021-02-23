@@ -1,15 +1,23 @@
-<h1> Enter a comment for <%= @walker.name %> </h1>
-
-<%= render partial: "layouts/errors", locals: { obj: @comment } %>
-
-<%= form_for @comment do |f| %>
-    <%= f.label :entry %>
-    <%= f.text_field :entry, required: true %>
+<div class="message is-link">
+  <div class="message-header">
+    <p>Enter a review for <%= @walker.name %></p>
+  </div>
+  <div class="message-body">
+    <%= form_for @comment do |f| %>
+    <%= f.label :entry, class: "label" %>
+    <%= f.text_field :entry, required: true, class: "textarea", placeholder: "Your text here" %>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :walker_id, value: params[:walker_id] %>
-    
-    <%= f.submit "Post!" %>
-<% end %>
-
-<%= link_to "Back", walker_comments_path(@walker) %>
+    <br>
+    <div class="field is-grouped">
+    <div class="control">
+    <%= f.submit "Post!", class: "button is-link is-small"%>
+    </div>
+    <% end %>
+    <div class="control">
+    <%= link_to "Back", walker_comments_path(@walker), class: "button is-link is-small is-outlined" %>
+    </div>
+    </div>
+  </div>
+</div>

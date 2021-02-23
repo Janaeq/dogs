@@ -1,14 +1,18 @@
-<%= walks_heading %>
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+        <%= walks_heading %>
+    </p>
+  </div>
+</section>
+<div class="message is-link">
+<div class="message-body">
 <% if @walks.empty? %>
-    <p> No walks scheduled yet! </p>
+<div class="container">
+    <p class="subtitle"> No walks scheduled yet! </p>
+</div>
 <% else %>
     <%= render partial: "dogindex" %>
 <% end %>
-
-<% if @dog %>
-    <%= link_to "Shedule A Walk", new_dog_walk_path(@dog) %>
-    <%= link_to "#{@dog.name}'s Profile", dog_path(@dog) %>
-<% else %>
-    <%= link_to "Schedule a Walk!", new_walk_path %>
-<% end %>
-
+</div>
+</div>

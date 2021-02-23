@@ -1,20 +1,39 @@
-<h1> Add a New Dog </h1>
+<section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+        Add a New Dog
+    </p>
+  </div>
+</section>
 
+<div class="box">
 <%= render partial: "layouts/errors", locals: { obj: @dog } %>
 
 <%= form_for @dog do |f| %> 
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true %><br>
-    <br>
-    <%= f.label :age %><br>
-    <%= f.number_field :age, required: true %><br>
-    <br>
-    <%= f.label :breed %><br>
-    <%= f.text_field :breed, required: true %><br>
-    <br>
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender, required: true %><br>
-    <br>
-    <%= f.submit "Submit" %>
+    <div class="field">
+    <%= f.label :name %>
+    <div class="control">
+    <%= f.text_field :name, required: true %>
+    </div>
+    </div> 
+    <div class="field"> 
+    <%= f.label :age %>
+    <div class="control">
+    <%= f.number_field :age, required: true %>
+    </div>
+    </div> 
+    <div class="field"> 
+    <%= f.label :breed %>
+    <div class="control">
+    <%= f.text_field :breed, required: true %>
+    </div>
+    </div>
+    <div class="field">
+    <%= f.label :gender %>
+    <div class="control">
+    <%= f.text_field :gender, required: true %>
+    </div>
+    </div>
+    <%= f.submit "Submit", class: "button is-link" %>
 <% end %>
-<%= link_to "Back", dogs_path %>
+</div>
