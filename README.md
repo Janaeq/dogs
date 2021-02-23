@@ -12,9 +12,11 @@ Once all your gems are installed, start the server using ```rails s```
 
 Open the program by entering "localhost:3000" in your browser
 
+
 ## Contributions
 
 Please submit a pull request for all contributions
+
 
 ## License
 
