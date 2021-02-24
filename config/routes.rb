@@ -18,9 +18,13 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create] #walkers/:id/comments
   end
 
+  #walkers nested under users
+
+  resources :users do
+    resources :walkers, only: [:index]
+  end
+
   resources :walks
   resources :comments
-  resources :walkers
-  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,7 +3,11 @@ class WalkersController < ApplicationController
     
     def index
         # list of all walkers in the system
-        @walkers = Walker.all
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @walkers = @user.walkers
+        else
+            @walkers = Walker.all
+        end
     end
 
     def show

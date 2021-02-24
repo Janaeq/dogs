@@ -6,15 +6,22 @@ class CommentsController < ApplicationController
 
     def new
         # creates a new comment about a specific walker
-        @comment = Comment.new
+        if params[:walker_id] && @walker = Walker.find_by_id(params[:walker_id])
+            @comment = @walker.comments.build
+        else
+            @comment = Comment.new
+        end
+        
     end
 
     def create
         # creates a new comment about a specific walker
-        @comment = Comment.new(comment_params)
+        @walker = Walker.find_by(id: params[:walker_id])
+        @comment = @walker.comments.build(comment_params)
         if @comment.save
             redirect_to walker_comments_path(@comment.walker_id)
         else 
+            @walker = Walker.find_by_id(params[:walker_id]) if params[:walker_id]
             render :new
         end
     end
