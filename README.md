@@ -6,7 +6,12 @@ Users can also comment on walkers that their dogs have walked with or will walk 
 ## How To Use
 
 To begin, fork and clone this repo. 
-Run ```bundle install``` and ```rails db:migrate RAILS_ENV=development```
+Run the following command
+```ruby
+bundle install
+rails db:migrate RAILS_ENV=development
+rails db:seed
+``` 
 
 Once all your gems are installed and your migration is complete, start the server using ```rails s```
 
