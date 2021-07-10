@@ -6,9 +6,9 @@ Users can also comment on walkers that their dogs have walked with or will walk 
 ## How To Use
 
 To begin, fork and clone this repo. 
-Run ```bundle install``` 
+Run ```bundle install``` and ```rails db:migrate RAILS_ENV=development```
 
-Once all your gems are installed, start the server using ```rails s```
+Once all your gems are installed and your migration is complete, start the server using ```rails s```
 
 Open the program by entering "localhost:3000" in your browser
 
