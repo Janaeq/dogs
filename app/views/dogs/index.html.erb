@@ -10,7 +10,7 @@
 <% if @dogs.empty? %>
 <div class="container">
     <p class="subtitle"> It looks like you don't have any Furry Friends on your profile yet. </p>
-    <p class="subtitle"> Click the "Add Dog" button below to create a profile for your Furry Friend! </p>
+    <p class="subtitle"> Click the Add Dog button below to create a profile for your Furry Friend! </p>
 <% else %>
     <p class="subtitle"> Here is a list of your Furry Friends </p>
     <ul>
@@ -20,4 +20,4 @@
     </ul>
 <% end %>
 <br><br>
-<%= link_to "Add Dog", new_dog_path, class: "button is-link is-small"%> 
+<%= link_to "Add Dog", new_dog_path, class: "button is-link"%> 
