@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "/signup" => "users#create"
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
+  # REDIRECT USER IF AUTH FAILS
+  get '/auth/failure', to: redirect('/')
 
   resources :dogs do
     resources :walks, only: [:index, :new, :create] #dogs/:id/walks
