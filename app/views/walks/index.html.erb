@@ -10,6 +10,7 @@
 <% if @walks.empty? %>
 <div class="container">
     <p class="subtitle"> No walks scheduled yet! </p>
+     <%= link_to "Schedule a Walk!", new_walk_path, class: "button is-link is-outlined" %>
 </div>
 <% else %>
     <%= render partial: "dogindex" %>
