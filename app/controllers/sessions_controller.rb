@@ -31,9 +31,11 @@ class SessionsController < ApplicationController
         @user.save
         session[:user_id] = @user.id
         redirect_to root_path
-      end
-      private
-      def auth
+    end
+
+    private
+    def auth
         request.env['omniauth.auth']
-      end
+    end
 end
+#  need client_id from google OAuth from google api? Double check, there is no dot env file here
