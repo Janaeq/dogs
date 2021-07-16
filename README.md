@@ -11,7 +11,7 @@ Install required gems and dependencies
 bundle install
 bundle exec rake webpacker:install
 ``` 
-Run migrations 
+In order to use the Google Oauth feature, you must obtain a Client ID and Client Secret from the Google Developers Website and include it in a high level .env file of this repository. Once you have this done, you can continue to run the migrations.
 ```ruby
 rails db:migrate RAILS_ENV=development
 rails db:seed
