@@ -6,14 +6,18 @@ Users can also comment on walkers that their dogs have walked with or will walk 
 ## How To Use
 
 To begin, fork and clone this repo. 
-Run the following command
+Install required gems and dependencies
 ```ruby
 bundle install
+bundle exec rake webpacker:install
+``` 
+Run migrations 
+```ruby
 rails db:migrate RAILS_ENV=development
 rails db:seed
-``` 
+```
 
-Once all your gems are installed and your migration is complete, start the server using ```rails s```
+Once everything is installed and your migrations are complete, start the server using ```rails s```
 
 Open the program by entering "localhost:3000" in your browser
 
