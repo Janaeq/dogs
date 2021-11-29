@@ -9,9 +9,11 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
 
     def self.from_omniauth(auth)
+      # get email info and set username as name from email, email as email, and password as gmail password
         where(email: auth.info.email).first_or_initialize do |user|
           user.username = auth.info.name
           user.email = auth.info.email
+          # generates random hexadecimal string and assigns it as this password (from docs) 
           user.password = SecureRandom.hex
         end
     end

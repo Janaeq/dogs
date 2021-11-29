@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     def create
         # creates a new comment about a specific walker
         @walker = Walker.find_by(id: params[:walker_id])
+        # .build method creates a comment on the walker found above
         @comment = @walker.comments.build(comment_params)
         if @comment.save
             redirect_to walker_comments_path(@comment.walker_id)
@@ -40,6 +41,7 @@ class CommentsController < ApplicationController
     end
 
     def set_walker
+        # finds walker to allow .build in create method
         @walker = Walker.find_by(id: params[:walker_id])
     end
 end
