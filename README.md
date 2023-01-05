@@ -1,5 +1,4 @@
 # Furry Trails
-[Demo](https://youtu.be/fnvZS7TgpLo) </br></br>
 This is a Dog Walking Program that allows users to add their dogs to their profiles and schedule walks for them.
 Users can also comment on walkers that their dogs have walked with or will walk with in the future. 
 
